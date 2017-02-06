@@ -47,7 +47,7 @@ export default class Article extends Component {
   }
 
   getComments(article) {
-    if( !this.state.isCommentsVisible || !article.comments ) return null;
+    if( !this.state.isCommentsVisible ) return null;
 
     return (
       <ul className="comments-section" key={article.id}>
