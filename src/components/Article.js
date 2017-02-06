@@ -16,6 +16,7 @@ export default class Article extends Component {
     const {article} = this.props;
     let commentsSection = "No Comments yet";
 
+    //Я б эту проверку спрятал в CommentList
     if(article.comments) {
       commentsSection = (
         <section>
@@ -56,6 +57,7 @@ export default class Article extends Component {
     );
   }
 
+  //Лучше внести этот стейт в CommentList
   toggleComments = (ev) => {
     this.setState({
       isCommentsVisible: !this.state.isCommentsVisible
