@@ -6,6 +6,7 @@ export default (Component) => class AccordionHOC extends React.Component {
     itemID: null
   };
 
+  //нет, propTypes - это что сюда приходить должно. В случае декоратора это что угодно
   static propTypes = {
     isOpen: PropTypes.func,
     articleAccordion: PropTypes.func
