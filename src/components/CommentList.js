@@ -4,7 +4,12 @@ import Comment from './Comment'
 class CommentList extends Component {
     static defaultProps = {
         comments: []
-    }
+    };
+
+    static propTypes = {
+      isOpen: React.PropTypes.bool
+    };
+
     componentDidMount() {
         console.log('---', 'mounted')
     }
@@ -20,10 +25,10 @@ class CommentList extends Component {
 
     state = {
         isOpen: false
-    }
+    };
 
     render() {
-        const actionText = this.state.isOpen ? 'hide' : 'show'
+        const actionText = this.state.isOpen ? 'hide' : 'show';
         return (
             <div>
                 <a href="#" onClick={this.toggleOpen}>{actionText} comments</a>
@@ -33,9 +38,9 @@ class CommentList extends Component {
     }
 
     getBody() {
-        if (!this.state.isOpen) return null
+        if (!this.state.isOpen) return null;
 
-        const {comments} = this.props
+        const {comments} = this.props;
         if (!comments.length) return <h3>No comments yet</h3>
 
         const commentItems = comments.map(comment => <li key={comment.id}><Comment comment={comment} /></li>)
@@ -43,7 +48,7 @@ class CommentList extends Component {
     }
 
     toggleOpen = ev => {
-        ev.preventDefault()
+        ev.preventDefault();
         this.setState({
             isOpen: !this.state.isOpen
         })

@@ -1,36 +1,32 @@
-import React, {Component} from 'react'
+import React, {Component, PropTypes} from 'react'
 import Article from './Article'
+import accordionHOC from '../decorators/accordionHOC';
 
-export default class ArticleList extends Component {
-
-    state = {
-        openArticleId: null
-    }
+class ArticleList extends Component {
 
     render() {
-        const {articles} = this.props
+        const { articles } = this.props;
         const articleElements = articles.map((article) => <li key={article.id}>
             <Article
                 article={article}
-                isOpen={article.id == this.state.openArticleId}
-                toggleOpen={this.toggleOpenArticle(article.id)}/>
-        </li>)
+                isOpen={this.props.isOpen(article.id)}
+                toggleOpen={this.props.articleAccordion(article.id)}
+            />
+        </li>);
         return (
             <ul>
                 {articleElements}
             </ul>
         )
     }
-
-    toggleOpenArticle = openArticleId => ev => {
-        ev && ev.preventDefault && ev.preventDefault()
-        this.setState({
-            openArticleId
-        })
-    }
 }
 
+ArticleList.propTypes = {
+  articles: PropTypes.array
+};
 
 ArticleList.defaultProps = {
     articles: []
-}
+};
+
+export default accordionHOC(ArticleList);
