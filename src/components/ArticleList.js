@@ -3,8 +3,9 @@ import Article from './Article/index'
 import accordion from '../decorators/accordion'
 
 class ArticleList extends Component {
+
     render() {
-        const {articles, toggleOpenItem, isOpenItem} = this.props
+        const {articles, toggleOpenItem, isOpenItem, changeInputValue} = this.props;
         const articleElements = articles.map((article) => <li key={article.id}>
             <Article
                 article={article}
@@ -17,8 +18,9 @@ class ArticleList extends Component {
             </ul>
         )
     }
+
 }
-export default accordion(ArticleList)
+export default accordion(ArticleList);
 
 ArticleList.propTypes = {
     articles: PropTypes.array.isRequired,
