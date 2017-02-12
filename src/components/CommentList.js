@@ -11,12 +11,11 @@ class CommentList extends Component {
         commenter: PropTypes.string,
         commentText: PropTypes.string,
         from: PropTypes.string,
-        to: PropTypes.string,
-        selectedDays: PropTypes.array
+        to: PropTypes.string
     };
 
     static defaultProps = {
-        comments: [],
+        comments: []
     };
 
     componentDidMount() {
