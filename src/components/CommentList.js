@@ -5,6 +5,7 @@ import moment from "moment";
 
 import 'react-day-picker/lib/style.css';
 
+//компонент-монстр. Вынеси календарь и форму в отдельные компоненты. А календарь вообще в App
 class CommentList extends Component {
     static propTypes = {
         comments: PropTypes.array,
